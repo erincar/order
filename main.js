@@ -13,16 +13,19 @@ $(function(){
     adjustContainerHeight();
 
     // When page is loaded, show the 'about' section
-    $("section").hide();
-    $("#about").show("slow");
-    shown_section = "about";
+    $(document).ready(function(){
+        $("#about").show("slow",function(){/*$('#about-resume').height($('#about-summary').height());*/});
+        shown_section = "about";
+        console.log($('#about-summary').height());
+    });
 
     // When the section links are pressed, show the requested section
     $( ".section-shortcuts > ul > li > a" ).click(function()
     {
+        console.log($('#about-summary').height());
         if($(this).text() !== shown_section)
         {
-            $("section").hide("slow");
+            $("#"+shown_section).hide("slow");
             $( "#"+$(this).text() ).show("slow");
             shown_section = $(this).text();
         }

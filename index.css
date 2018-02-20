@@ -29,7 +29,7 @@ header {
 
 #container {
     height: 100%;
-    background-image: url("background360.png");
+    background-image: url("images/background360.png");
     overflow: scroll;
     overflow-x: hidden;
     padding: 0px;
@@ -43,6 +43,16 @@ header {
     background-color: #CCCCCC;
     border-radius: 8px;
     outline: 4px solid slategrey;
+}
+
+.game-header {
+    font-family: 'Patua One', cursive;
+    font-size: 16px;
+}
+
+#games ul li {
+    font-family: 'Patua One', cursive;
+    font-size: 16px;
 }
 
 section {

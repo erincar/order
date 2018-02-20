@@ -1,0 +1,6 @@
+[submodule "colors"]
+	path = colors
+	url = https://github.com/erincar/colors
+[submodule "series"]
+	path = series
+	url = https://github.com/erincar/series

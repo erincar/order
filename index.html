@@ -103,58 +103,52 @@
                 </div>
             </section>
             <section id="games" style="display: none;">
-                <p>
-                    Beside thousands of game ideas noted here and there, I actually have two working prototypes.<br />
-                    One is a puzzle game I am calling <b>colors</b>, and the other is a reflex based game called <b>series</b>.<br />
-                    Below is more detail about them, including live demos with detailed implementation bits.<br />
-                    Both prototypes were made using <a href="http://phaser.io/">Phaser</a>.
-                </p>
-                <div>
-                    <h1>Colors</h1>
-                    <b>Idea Sprout:</b> May 2014 <br />
-                    <b>First Prototype:</b> May 2014, <i>Python / PyGame</i> <br />
-                    <b>Web Prototype:</b> April 2017, <i>HTML5 / JS / Phaser</i> <br />
-                    <h2 style="font-family: 'Patua One', cursive;">Rules:</h2>
-                    <ul style="font-family: 'Patua One', cursive; font-size: 24px;">
-                        <li> Cell values: 1-6, Cell Neighbors: Left, Right, Top, Bottom </li>
-                        <li> Neighbor has (own value + 1) ->  Cell can be incremented <i>short press &amp; release</i></li>
-                        <li> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 1 </li>
-                        <li> Cell cluster with same value can all change at once. <i>long press &amp; release on a changable cell</i></li>
-                        <li> CHANGING CLUSTERS COUNTS FOR A SINGLE MOVE </li>
-                        <li> Goal: Turn all cells into the same color in least amount of moves.</li>
-                    </ul>
-
-                    <div style="width: 50%; float: right;">
-                        <div class="game-div" id="colo-div" style="width: 480px; height: 480px;"></div>
-                    </div>
-                    <div style="width: 50%;">
-                        <script src="https://gist.github.com/erincar/a177b9b17a0c660da039b7a0676d9983.js"></script>
-                    </div>
-                </div>
                 <div>
                     <h1>Series</h1>
                     <b>Idea Sprout:</b> Summer 2015 <br />
                     <b>First Prototype:</b> Summer 2015, <i>AppGameKit2</i> <br />
                     <b>Web Prototype:</b> Autumn 2016, <i>HTML5 / JS / Phaser</i> <br />
-                    <h2 style="font-family: 'Patua One', cursive;">Rules:</h2>
-                    <ul style="font-family: 'Patua One', cursive; font-size: 24px;">
-                        <li> 9 Numbers appear on the screen. </li>
-                        <li> Press the numbers in the right order. </li>
-                        <li> Gain time for each correct press. </li>
-                        <li> More numbers appear. </li>
-                        <li> Goal: Press numbers in correct order as fast as you can, without timeout.</li>
-                    </ul>
 
-                    <div style="width: 50%; float: right;">
-                        <div class="game-div" id="series-div" style="width: 480px; height: 480px;"></div>
+                    <div>
+                        <div class="game-div" id="series-div" style="width: 960px; height: 540px;"></div>
                     </div>
-                    <div style="width: 50%;">
-                        <script src="https://gist.github.com/erincar/5d073fad4c30e28659da60415822702a.js"></script>
+                    <div style="height: 540px; padding-left:10px;">
+                        <h2 style="font-family: 'Patua One', cursive;">Rules:</h2>
+                        <ul style="font-family: 'Patua One', cursive; font-size: 18px;">
+                            <li> 9 Numbers appear on the screen. </li>
+                            <li> Press the numbers in the right order. </li>
+                            <li> Gain time for each correct press. </li>
+                            <li> More numbers appear. </li>
+                            <li> Goal: Press numbers in correct order as fast as you can, without timeout.</li>
+                        </ul>
                     </div>
                 </div>
-                <script src="games/phaser.min.js"></script>
+
+                <div>
+                    <h1>Colors</h1>
+                    <b>Idea Sprout:</b> May 2014 <br />
+                    <b>First Prototype:</b> May 2014, <i>Python / PyGame</i> <br />
+                    <b>Web Prototype:</b> April 2017, <i>HTML5 / JS / Phaser</i> <br />
+
+                    <div>
+                        <div class="game-div" id="colo-div" style="width: 960px; height: 540px;"></div>
+                    </div>
+                    <div style="height: 540px; padding-left:10px;">
+                        <h2 style="font-family: 'Patua One', cursive;">Rules:</h2>
+                        <ul style="font-family: 'Patua One', cursive; font-size: 18px;">
+                            <li> Cell values: 1-6, Cell Neighbors: Left, Right, Top, Bottom </li>
+                            <li> Neighbor has (own value + 1) ->  Cell can be incremented <i>short press &amp; release</i></li>
+                            <li> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 1 </li>
+                            <li> Cell cluster with same value can all change at once. <i>long press &amp; release on a changable cell</i></li>
+                            <li> CHANGING CLUSTERS COUNTS FOR A SINGLE MOVE </li>
+                            <li> Goal: Turn all cells into the same color in least amount of moves.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <script src="phaser.min.js"></script>
                 <script src="colors/main.js"></script>
-                <!-- <script src="series/main.js"></script> -->
+                <script src="series/main.js"></script>
             </section>
         </div>
         <footer>

@@ -18,7 +18,10 @@
     integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 
   <link href='https://fonts.googleapis.com/css?family=IM+Fell+English+SC' rel='stylesheet' type='text/css'>
-  <audio id="order" src="order.mp3" type="audio/mpeg" loop onprogress="audioProgress()" onloadeddata="audioLoad()" preload="none"></audio>
+  <audio id="order" src="order.mp3" type="audio/mpeg" loop
+    oncanplaythrough="audioLoad()"
+    preload="none">
+  </audio>
 
   <style>
   html, body {
@@ -36,8 +39,8 @@
 
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s, opacity 1.5s ease-out;
-    -webkit-transition: visibility 0s, opacity 1.5s ease-out;
+    transition: visibility 0s, opacity 2.5s ease-out;
+    -webkit-transition: visibility 0s, opacity 2.5s ease-out;
   }
 
   div#main-container h1 {
@@ -47,13 +50,19 @@
   }
   </style>
   <script>
-  let audio;
-
-  const audioProgress = function () {
-    console.log(audio.buffered.length);
-  };
+  let audio, context, source, analyser, bufferLength, dataArray;
 
   const audioLoad = function () {
+    source = context.createMediaElementSource(audio);
+    analyser = context.createAnalyser();
+    source.connect(analyser);
+    analyser.connect(context.destination);
+    analyser.fftSize = 512;
+
+    bufferLength = analyser.frequencyBinCount;
+    dataArray = new Uint8Array(bufferLength);
+
+    // analyser.getByteFrequencyData(dataArray); to read into the dataArray
     audio.play();
   }
 
@@ -71,6 +80,10 @@
     const image = new Image();
     image.onload = imageLoad;
     image.src = "order.jpg";
+  });
+
+  $(window).on('load', function () {
+    context = new (window.AudioContext || window.webkitAudioContext)({sampleRate: 44100});
   });
   </script>
 </head>

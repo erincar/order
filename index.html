@@ -18,7 +18,7 @@
     integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 
   <link href='https://fonts.googleapis.com/css?family=IM+Fell+English+SC' rel='stylesheet' type='text/css'>
-  <audio id="order" src="order.mp3" type="audio/mpeg" loop></audio>
+  <audio id="order" src="order.mp3" type="audio/mpeg" loop onprogress="audioProgress()" onloadeddata="audioLoad()" preload="none"></audio>
 
   <style>
   html, body {
@@ -26,12 +26,18 @@
     padding: 0;
     height: 100%;
     width: 100%;
+    background-color: black;
   }
 
   div#main-container {
-    background-image: url("order.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: black;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 1.5s ease-out;
+    -webkit-transition: visibility 0s, opacity 1.5s ease-out;
   }
 
   div#main-container h1 {
@@ -41,10 +47,31 @@
   }
   </style>
   <script>
+  let audio;
+
+  const audioProgress = function () {
+    console.log(audio.buffered.length);
+  };
+
+  const audioLoad = function () {
+    audio.play();
+  }
+
+  const imageLoad = function () {
+    audio.load();
+    const container = document.getElementById("main-container");
+    container.style.opacity = 1;
+    container.style.visibility = 'visible';
+    container.style.backgroundImage = 'url("order.jpg")';
+  };
+
   $(document).ready(function () {
-      document.getElementById("order").volume = 0.1;
-      document.getElementById("order").play();
-    });
+    audio = document.getElementById("order");
+    audio.volume = 0.1;
+    const image = new Image();
+    image.onload = imageLoad;
+    image.src = "order.jpg";
+  });
   </script>
 </head>
 <body>

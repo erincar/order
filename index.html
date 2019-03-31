@@ -1,218 +1,59 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Erinç Arğımak Portfolio Website.">
-        <meta name="author" content="Erinç Arğımak">
-        <title>Erinç Arğımak</title>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>YES</title>
 
-        <link href="index.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <div class="mini-profile">
-                <img src="profile.png"/>
-                <div class="tag">
-                    Erinç Argımak<br />
-                    M.S., Game Science &amp; Design, Northeastern University<br />
-                </div>
-                <div class="links">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-                </div>
-            </div>
-            <div class="section-shortcuts">
-                <ul>
-                    <li><a>about</a></li>
-                    <li><a>music</a></li>
-                    <li><a>games</a></li>
-                </ul>
-            </div>
-        </header>
-        <div id="container">
-            <section id="about" style="display: none;">
-                <div id="about-wrapper">
-                    <div id="about-summary" style="width: 49%; float: left; font-family: 'Patua One', cursive;">
-                        <p>
-                            <h2>past, present, future</h2>
-                            I have spent most of my childhood and early teenages drawing, most of my teenages taking in art
-                            and making music, most of my college years programming, designing games, making more music and
-                            learning what in life is valuable for me.
-                            </br></br>
-                            Currently, I am spending most of my time studying game design, working as a research assistant,
-                            learning advanced time management and missing home.
-                            </br></br>
-                            I want to spend most of my adulthood designing and producing more games, making even more music,
-                            getting back to drawing, writing about my thoughts, creating automated intelligence bits to be
-                            functional and amuse me, discussing deep stuff with friends, spending mindful time with the close ones.
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+    integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 
-                            <h2>lenses through which I see life</h2>
-                            Arts, Modern Media, CS, AI, Psychology, Cognitive Science, Evolutionary Biology, Ecology, Philosophy, possibly more.
+  <link href='https://fonts.googleapis.com/css?family=IM+Fell+English+SC' rel='stylesheet' type='text/css'>
+  <audio id="order" src="order.mp3" type="audio/mpeg" loop></audio>
 
-                            <h2>what to do here</h2>
-                            Take a look at my CV, offer me a job if you feel like it.</br>
-                            Browse and listen to my music. Talk to me about it. </br>
-                            Go to games section and play(-test) my games.</br>
-                            Go to my external links (on CV).</br>
-                            Contact me through any platform and talk to me about anything.</br>
-                        </p>
-                    </div>
-                    <object id="about-resume" style="width: 50%; min-height: 80vh; overflow-x: hidden;" data="ErincArgimak-resume.pdf#fitW" type="application/pdf"><parm name="view"/></object>
-                </div>
-            </section>
-            <section id="music" style="display: none;">
-                <p>
-                    I have been interested in making music since 2007, which was the time I started playing drums.<br />
-                    I started composing MIDIs in 2008. Whenever I am handling instrumentation or simply a lot of notes, that's still my way to go. <br />
-                    Since 2012, I have been producing and publishing electronic music under various names.
-                </p>
-                <div class="discography" id="tailsnatching">
-                    <h1>Tailsnatching (2012 - 2015)</h1>
-                    <iframe style="border: 0; width: 95%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=4156286390/size=small/bgcol=333333/linkcol=e99708/transparent=true/" seamless><a href="http://tailsnatching.bandcamp.com/album/tailsnatching">Tailsnatching by Tailsnatching</a></iframe>
-                    <iframe style="border: 0; width: 95%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=3193358767/size=small/bgcol=333333/linkcol=9a64ff/transparent=true/" seamless><a href="http://tailsnatching.bandcamp.com/album/mindpaths">Mindpaths by Tailsnatching</a></iframe>
-                    <iframe style="border: 0; width: 95%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=636744023/size=small/bgcol=333333/linkcol=ffffff/transparent=true/" seamless><a href="http://tailsnatching.bandcamp.com/album/infectious">Infectious by Tailsnatching</a></iframe>
-                    <iframe style="border: 0; width: 95%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=1839360856/size=small/bgcol=333333/linkcol=2ebd35/transparent=true/" seamless><a href="http://tailsnatching.bandcamp.com/album/horizon-hill">Horizon Hill by Tailsnatching</a></iframe>
-                    <iframe style="border: 0; width: 95%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=1623614202/size=small/bgcol=333333/linkcol=fe7eaf/transparent=true/" seamless><a href="http://tailsnatching.bandcamp.com/album/set-the-naked-free-unreleased">Set the Naked Free (Unreleased) by Tailsnatching</a></iframe>
-                    <iframe style="border: 0; width: 95%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=2722764477/size=small/bgcol=333333/linkcol=9a64ff/transparent=true/" seamless><a href="http://tailsnatching.bandcamp.com/album/folk-that-never-existed">Folk That Never Existed by Tailsnatching</a></iframe>
-                    <p>
-                        My first project that I published.<br />
-                        Consists mostly of production experiments.<br />
-                        Wanted to combine a progressive approach to composition with atmospheric sounds that feel alive.<br />
-                    </p>
-                </div>
-                <div class="discography" id="a-frame-intact">
-                    <h1>A Frame Intact (2014)</h1>
-                    <iframe style="border: 0; width: 95%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=31651342/size=large/bgcol=333333/linkcol=2ebd35/tracklist=false/artwork=small/transparent=true/" seamless><a href="http://aframeintact.bandcamp.com/album/immune-to-symmetry">Immune to Symmetry by A Frame Intact</a></iframe>
-                    <p>
-                        The idea was to make music from sounds that were not musical when out of context.
-                        Evolved to some deeper experiments and presented other internal atmospheres.
-                    </p>
-                </div>
-                <div class="discography" id="topal">
-                    <h1>Topal (2015)</h1>
-                    <iframe style="border: 0; width: 95%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=894061344/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" seamless><a href="http://topal.bandcamp.com/album/g">göç by Topal</a></iframe>
-                    <iframe style="border: 0; width: 95%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/track=777944555/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" seamless><a href="http://topal.bandcamp.com/track/barut">barut by Topal</a></iframe>
-                    <p>
-                        Started almost entirely as a sound experiment.
-                        Turned into a cold and dead description of which I visualize as a silent native clan that became inhumane but bears an emotional burden at the same time.
-                    </p>
-                </div>
-                <div style="width: 100%; font-family: 'Patua One', cursive; font-size: 24px; text-align: center;">
-                    Contact for more information, other demos and ongoing projects.<br />
-                </div>
-            </section>
-            <section id="games" style="display: none;">
+  <style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
 
-                <div class="game-header">
-                    <h1>BUFFER</h1>
-                    <b>Global Game Jam 2018 Entry (Theme: Transmission)</b> January 2018 <br />
-                    Python/Pygame <br />
-                    (Video sound is a little high, lowering volume might be needed. sorry) <br/>
-                    <iframe width="600" height="339" src="https://www.youtube.com/embed/gDSknBnuJAU?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="float: left; margin-right: 20px;"></iframe>
-                    <div style="height: 339px; margin: 20px;">
-                        <h2>Rules:</h2>
-                        <ul>
-                            <li> There are nodes, and connections. </li>
-                            <li> There is a starting node, and a target node. </li>
-                            <li> The starting node starts with the 'matter' - which needs to be transmitted to the target node. </li>
-                            <li> A node can only transmit to another node if there is connection between them. </li>
-                            <li> Nodes can only hold the matter for some time. </li>
-                            <li> The connections randomly appear and disappear. </li>
-                            <li> Transmit the matter before the target times out or matter is lost! </li>
-                        </ul>
-                    </div>
-                </div>
+  div#main-container {
+    background-image: url("order.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
-                <div class="game-header">
-                    <h1>Intergalactic Dance Robot</h1>
-                    <b>Game Design &amp; Analysis Class Project,</b> November - December 2017 <br />
-                    Unity/C# <br />
-                    <b>Team: </b> Alex Coburn, Barru Tolety, Kyros Jalife, Erinc Argimak <br />
-                    <iframe width="600" height="339" src="https://www.youtube.com/embed/vAb-1kEaSKc?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="float: left; margin-right: 20px;"></iframe>
-                    <div style="height: 339px; margin: 20px;">
-                        <h2>Rules:</h2>
-                        <ul>
-                            <li> Each limb of the robot can be controlled with a button. </li>
-                            <li> The dance move holograms come towards the robot. </li>
-                            <li> When the hologram touches the robot, the robot should have the same pose. </li>
-                            <li> The robot loses charge over time. </li>
-                            <li> Some limbs of the robot have 'orbs' - that charge the robot for some energy. </li>
-                            <li> Survive until the end of the round and score as high as possible! </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="game-header">
-                    <h1>Under the Sea</h1>
-                    <b>Game Design &amp; Analysis Class Project,</b> September - November 2017 <br />
-                    Board Game <br />
-                    <b>Team: </b> Xiao Yu, Anqi Liu, Zhu Ge, Wenqi Fan, Erinc Argimak <br />
-                    <img src="images/under_the_sea.png" alt="" style="width: 600px; height: 400px; float: left; margin-right: 20px;">
-                    <div style="height: 400px; margin: 20px;">
-                        <h2>Rules:</h2>
-                        <ul>
-                            <li> Players are controlling teams of monsters. </li>
-                            <li> At the center of the board is a treasure. </li>
-                            <li> The goal is to get the treasure and bring it back to the spawn. </li>
-                            <li> The middle, darker area makes whoever enters invisible, so players should guess where their opponents' monsters are and
-                            reveal them to be able to capture them. </li>
-                            <li> Each turn, each monster can move maximum 3 steps, and use their skill only once. </li>
-                            <li> Monsters have capturing sides and weak sides, they can capture each other. </li>
-                            <li> Captured monster is sent back to its spawn point. </li>
-                            <li> The board includes various actions such as teleport, or reveal. </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="game-header">
-                    <h1>Series</h1>
-                    <b>Idea Sprout:</b> Summer 2015 <br />
-                    <b>First Prototype:</b> Summer 2015, <i>AppGameKit2</i> <br />
-                    <b>Web Prototype:</b> Autumn 2016 (Updated February 2018), <i>HTML5 / JS / Phaser</i> <br />
-
-                    <div class="game-div" id="series-div" style="width: 960px; height: 540px; margin-right: 20px;"></div>
-                    <div style="height: 540px;">
-                        <h2>Rules:</h2>
-                        <ul>
-                            <li> 9 Numbers appear on the screen. </li>
-                            <li> Press the numbers in the right order. </li>
-                            <li> Gain time for each correct press. </li>
-                            <li> More numbers appear. </li>
-                            <li> Goal: Press numbers in correct order as fast as you can, without timeout.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="game-header">
-                    <h1>Colors</h1>
-                    <b>Idea Sprout:</b> May 2014 <br />
-                    <b>First Prototype:</b> May 2014, <i>Python / PyGame</i> <br />
-                    <b>Web Prototype:</b> April 2017 (Updated February 2018), <i>HTML5 / JS / Phaser</i> <br />
-
-                    <div class="game-div" id="colo-div" style="width: 960px; height: 540px; margin-right: 20px;"></div>
-                    <div style="height: 540px; margin:10px;">
-                        <h2 style="font-family: 'Patua One', cursive;">Rules:</h2>
-                        <ul>
-                            <li> Cell values: 1-6, Cell Neighbors: Left, Right, Top, Bottom </li>
-                            <li> Neighbor has (own value + 1) ->  Cell can be incremented <i>short press &amp; release</i></li>
-                            <li> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 1 </li>
-                            <li> Cell cluster with same value can all change at once. <i>long press &amp; release on a changable cell</i></li>
-                            <li> CHANGING CLUSTERS COUNTS FOR A SINGLE MOVE </li>
-                            <li> Goal: Turn all cells into the same color in least amount of moves.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <script src="phaser.min.js"></script>
-                <script src="colors/main.js"></script>
-                <script src="series/main.js"></script>
-            </section>
-        </div>
-        <footer>
-            Design &amp; Code: Erinç Argımak (<a href="mailto:erar93@gmail.com">mail</a>), 2018. Tested on Windows 10/Chrome, 1920x1080. External Font: <a href="https://fonts.google.com/specimen/Patua+One">Patua One</a><br />
-        </footer>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-        <script src="main.js"></script>
-    </body>
+  div#main-container h1 {
+    color: #ff8866;
+    font-size: 4rem;
+    font-family: 'IM Fell English SC', serif;
+  }
+  </style>
+  <script>
+  $(document).ready(function () {
+      document.getElementById("order").volume = 0.1;
+      document.getElementById("order").play();
+    });
+  </script>
+</head>
+<body>
+  <div id="main-container" class="container-fluid h-100 p-0 m-0 d-flex flex-row align-items-center">
+    <div class="row w-100 p-0 m-0 justify-content-center">
+      <div class="col-12 col-lg-10 p-0 m-0">
+        <h1 class="text-center m-0 p-0">YES, I SEE THE ORDER NOW</h1>
+      </div>
+    </div>
+  </div>
+</body>
 </html>

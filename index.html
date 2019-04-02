@@ -19,7 +19,7 @@
 
   <link href='https://fonts.googleapis.com/css?family=IM+Fell+English+SC' rel='stylesheet' type='text/css'>
   <audio id="order" src="order.mp3" type="audio/mpeg" loop
-    oncanplaythrough="audioLoad()"
+    onprogress="audioLoad()"
     preload="none">
   </audio>
 
@@ -85,6 +85,10 @@
     }
   }
 
+  const audioProgress = function () {
+    console.log("audio progress");
+  }
+
   const audioLoad = function () {
     console.log("audio load");
     source = context.createMediaElementSource(audio);
@@ -96,12 +100,15 @@
     bufferLength = analyser.frequencyBinCount;
     dataArray = new Uint8Array(bufferLength);
 
+    audio.volume = 0.1;
     audio.play();
     canvasLoop();
   }
 
   const imageLoad = function () {
+    console.log("image load")
     audio.load();
+    console.log("audio load initiated");
     const container = document.getElementById("main-container");
     container.style.opacity = 1;
     container.style.visibility = 'visible';
@@ -112,7 +119,7 @@
     canvas = document.getElementById("fx-canvas");
     canvasContext = canvas.getContext("2d");
     audio = document.getElementById("order");
-    audio.volume = 0.1;
+
     const image = new Image();
     image.onload = imageLoad;
     image.src = "order.jpg";

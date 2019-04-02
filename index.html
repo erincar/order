@@ -48,9 +48,36 @@
     font-size: 4rem;
     font-family: 'IM Fell English SC', serif;
   }
+
+  div#main-container .row .text-container {
+    z-index: 2;
+  }
+
+  div#fx-container {
+    z-index: 1;
+  }
+
+  canvas#fx-canvas {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
   </style>
   <script>
-  let audio, context, source, analyser, bufferLength, dataArray;
+  let audio, context, source, analyser, bufferLength, dataArray
+  let canvas, canvasContext;
+
+  const canvasLoop = function () {
+    requestAnimationFrame(canvasLoop);
+    canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+    
+    analyser.getByteFrequencyData(dataArray);
+    for (let i=0; i < bufferLength; i++)
+    {
+      const f = dataArray[i];
+      canvasContext.fillStyle = '#' + (((f << 24) & 0xff000000) + ((f << 16) & 0x00ff0000) + ((f << 8) & 0x0000ff00) + (f & 0x000000ff)).toString(16);
+      canvasContext.fillRect(f, f, f, f);
+    }
+  }
 
   const audioLoad = function () {
     source = context.createMediaElementSource(audio);
@@ -62,8 +89,8 @@
     bufferLength = analyser.frequencyBinCount;
     dataArray = new Uint8Array(bufferLength);
 
-    // analyser.getByteFrequencyData(dataArray); to read into the dataArray
     audio.play();
+    canvasLoop();
   }
 
   const imageLoad = function () {
@@ -75,6 +102,8 @@
   };
 
   $(document).ready(function () {
+    canvas = document.getElementById("fx-canvas");
+    canvasContext = canvas.getContext("2d");
     audio = document.getElementById("order");
     audio.volume = 0.1;
     const image = new Image();
@@ -90,7 +119,10 @@
 <body>
   <div id="main-container" class="container-fluid h-100 p-0 m-0 d-flex flex-row align-items-center">
     <div class="row w-100 p-0 m-0 justify-content-center">
-      <div class="col-12 col-lg-10 p-0 m-0">
+      <div class="w-100 h-100 p-0 m-0 fixed-top" id="fx-container">
+        <canvas class="w-100 h-100" id="fx-canvas"></canvas>
+      </div>
+      <div class="text-container col-12 col-lg-10 p-0 m-0">
         <h1 class="text-center m-0 p-0">YES, I SEE THE ORDER NOW</h1>
       </div>
     </div>

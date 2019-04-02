@@ -19,7 +19,7 @@
 
   <link href='https://fonts.googleapis.com/css?family=IM+Fell+English+SC' rel='stylesheet' type='text/css'>
   <audio id="order" type="audio/mpeg"
-    loop autoplay
+    loop
     oncanplay="audioLoad()"
     preload="none">
     <source src="order.mp3">
@@ -65,7 +65,7 @@
   }
   </style>
   <script>
-  let audio, context, source, analyser, bufferLength, dataArray
+  let audio, context, source, analyser, bufferLength, dataArray;
   let canvas, canvasContext;
 
   const colorValue = function (f) {

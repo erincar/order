@@ -66,6 +66,11 @@
   let audio, context, source, analyser, bufferLength, dataArray
   let canvas, canvasContext;
 
+  const colorValue = function (f) {
+    const mask = (0xff << ( ( (f % 3) + 1 ) * 8 ));
+    return '#' + ((((f<<24) + (f<<16) + (f<<8)) & mask) + 0xff).toString(16);
+  }
+
   const canvasLoop = function () {
     requestAnimationFrame(canvasLoop);
     canvasContext.clearRect(0, 0, canvas.width, canvas.height);
@@ -74,8 +79,9 @@
     for (let i=0; i < bufferLength; i++)
     {
       const f = dataArray[i];
-      canvasContext.fillStyle = '#' + (((f << 24) & 0xff000000) + ((f << 16) & 0x00ff0000) + ((f << 8) & 0x0000ff00) + (f & 0x000000ff)).toString(16);
-      canvasContext.fillRect(f, f, f, f);
+      canvasContext.fillStyle = colorValue(f);
+      const ratio = f.toFixed() / 256;
+      canvasContext.fillRect(canvas.width * ratio, canvas.height * ratio, canvas.width * ratio, canvas.height * ratio);
     }
   }
 

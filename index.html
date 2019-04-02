@@ -86,6 +86,7 @@
   }
 
   const audioLoad = function () {
+    console.log("audio load");
     source = context.createMediaElementSource(audio);
     analyser = context.createAnalyser();
     source.connect(analyser);

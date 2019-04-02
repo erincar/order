@@ -90,7 +90,8 @@
   }
 
   const audioLoad = function () {
-    console.log("audio load");
+    if ( !audio.paused ) return;
+
     source = context.createMediaElementSource(audio);
     analyser = context.createAnalyser();
     source.connect(analyser);
@@ -106,9 +107,7 @@
   }
 
   const imageLoad = function () {
-    console.log("image load")
     audio.load();
-    console.log("audio load initiated");
     const container = document.getElementById("main-container");
     container.style.opacity = 1;
     container.style.visibility = 'visible';

@@ -19,7 +19,7 @@
 
   <link href='https://fonts.googleapis.com/css?family=IM+Fell+English+SC' rel='stylesheet' type='text/css'>
   <audio id="order" src="order.mp3" type="audio/mpeg" loop
-    onprogress="audioLoad()"
+    oncanplay="audioLoad()"
     preload="none">
   </audio>
 
@@ -85,13 +85,7 @@
     }
   }
 
-  const audioProgress = function () {
-    console.log("audio progress");
-  }
-
   const audioLoad = function () {
-    if ( !audio.paused ) return;
-
     source = context.createMediaElementSource(audio);
     analyser = context.createAnalyser();
     source.connect(analyser);

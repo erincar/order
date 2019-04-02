@@ -118,14 +118,14 @@
     canvas = document.getElementById("fx-canvas");
     canvasContext = canvas.getContext("2d");
     audio = document.getElementById("order");
-
-    const image = new Image();
-    image.onload = imageLoad;
-    image.src = "order.jpg";
   });
 
   $(window).on('load', function () {
     context = new (window.AudioContext || window.webkitAudioContext)({sampleRate: 44100});
+
+    const image = new Image();
+    image.onload = imageLoad;
+    image.src = "order.jpg";
   });
   </script>
 </head>

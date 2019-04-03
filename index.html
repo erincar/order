@@ -105,24 +105,43 @@
   <script>
   let button;
   let audio, context, source, analyser, bufferLength, dataArray;
-  let canvas, canvasContext;
+  let canvas, canvasContext, canvasContainer;
 
-  const colorValue = function (f, transparency) {
-    const mask = (0xff << ( ( (f % 3) + 1 ) * 8 ));
-    return '#' + ((((f<<24) + (f<<16) + (f<<8)) & mask) + transparency).toString(16);
+  const average = arr => arr.reduce((p, c) => p + c, 0) / arr.length;
+
+  const colorValue = function (dataArray, i, calculatedValues) {
+    const f = dataArray[i];
+    const r =  ((f % 16) * 16), g = ((f % 32) * 8), b = ((f % 64) * 4);
+    const colorIntensity = average([r, g, b]) / 256.0;
+
+    const maxOpacity = 0.9;
+    const opacity = colorIntensity * calculatedValues.amplitudeCoefficient * maxOpacity;
+
+    return "rgba(" + r + "," + g + "," + b + "," + opacity + ")";
   }
 
   const canvasLoop = function () {
     requestAnimationFrame(canvasLoop);
     canvasContext.clearRect(0, 0, canvas.width, canvas.height);
-    
+
+    // dataArray = Array.from({ length: 256 }, () => Math.floor(Math.random() * 256));
     analyser.getByteFrequencyData(dataArray);
-    for (let i=0; i < bufferLength; i++)
+    const calculatedValues = {};
+
+    calculatedValues.amplitudeAverage = average(dataArray) / 256.0;
+    calculatedValues.amplitudeCoefficient = Math.pow(calculatedValues.amplitudeAverage, 1.2);
+
+    for (let i = bufferLength - 1; i >= 0; i--)
     {
       const f = dataArray[i];
-      canvasContext.fillStyle = colorValue(f, 10);
-      const ratio = f.toFixed() / 256;
-      canvasContext.fillRect(canvas.width * ratio, canvas.height * ratio, canvas.width * ratio, canvas.height * ratio);
+      const sizeMultiplier = i / bufferLength.toFixed();
+      const ratio = f / 256.0;
+  
+      const w = canvas.width * sizeMultiplier, h = canvas.height * sizeMultiplier;
+      const x = (canvas.width - w) / 2, y = (canvas.height - h) / 2;
+      
+      canvasContext.fillStyle = colorValue(dataArray, i, calculatedValues);
+      canvasContext.fillRect(x, y, w, h);
     }
   }
 
@@ -159,7 +178,13 @@
 
   $(document).ready(function () {
     canvas = document.getElementById("fx-canvas");
+    canvasContainer = document.getElementById("fx-container");
+    canvas.width = canvasContainer.offsetWidth;
+    canvas.height = canvasContainer.offsetHeight;
+    
     canvasContext = canvas.getContext("2d");
+    canvasContext.imageSmoothingEnabled = false;
+
     audio = document.getElementById("order");
     button = document.getElementById("order-bringer");
   });

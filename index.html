@@ -63,8 +63,49 @@
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
   }
+
+  button#order-bringer {
+    z-index: 3;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* border-radius: 50%; */
+    border: transparent;
+    background: transparent;
+    color: #ff8866;
+    
+    animation: pulse 1.5s infinite;
+    -webkit-animation: pulse 0.3s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(.98);
+    }
+    30% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+      100% {
+      transform: translate(-50%, -50%) scale(.98);
+    }
+  }
+
+  @-webkit-keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(.98);
+    }
+    30% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+      100% {
+      transform: translate(-50%, -50%) scale(.98);
+    }
+  }
   </style>
   <script>
+  let button;
   let audio, context, source, analyser, bufferLength, dataArray;
   let canvas, canvasContext;
 
@@ -102,7 +143,14 @@
     canvasLoop();
   }
 
-  const imageLoad = function () {
+  const loadImage = function () {
+    button.style.display = 'none';
+    const image = new Image();
+    image.onload = imageLoaded;
+    image.src = "order.jpg";
+  };
+
+  const imageLoaded = function () {
     audio.load();
     const container = document.getElementById("main-container");
     container.style.opacity = 1;
@@ -114,6 +162,7 @@
     canvas = document.getElementById("fx-canvas");
     canvasContext = canvas.getContext("2d");
     audio = document.getElementById("order");
+    button = document.getElementById("order-bringer");
   });
 
   $(window).on('load', function () {
@@ -126,6 +175,7 @@
   </script>
 </head>
 <body>
+  <button id="order-bringer" class="" onclick="loadImage()">YES</button>
   <div id="main-container" class="container-fluid h-100 p-0 m-0 d-flex flex-row align-items-center">
     <div class="row w-100 p-0 m-0 justify-content-center">
       <div class="w-100 h-100 p-0 m-0 fixed-top" id="fx-container">

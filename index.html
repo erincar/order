@@ -109,9 +109,9 @@
   let audio, context, source, analyser, bufferLength, dataArray;
   let canvas, canvasContext;
 
-  const colorValue = function (f) {
+  const colorValue = function (f, transparency) {
     const mask = (0xff << ( ( (f % 3) + 1 ) * 8 ));
-    return '#' + ((((f<<24) + (f<<16) + (f<<8)) & mask) + 0xff).toString(16);
+    return '#' + ((((f<<24) + (f<<16) + (f<<8)) & mask) + transparency).toString(16);
   }
 
   const canvasLoop = function () {
@@ -122,7 +122,7 @@
     for (let i=0; i < bufferLength; i++)
     {
       const f = dataArray[i];
-      canvasContext.fillStyle = colorValue(f);
+      canvasContext.fillStyle = colorValue(f, 10);
       const ratio = f.toFixed() / 256;
       canvasContext.fillRect(canvas.width * ratio, canvas.height * ratio, canvas.width * ratio, canvas.height * ratio);
     }

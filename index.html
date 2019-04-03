@@ -32,6 +32,10 @@
     height: 100%;
     width: 100%;
     background-color: black;
+
+    color: #ff8866;
+    font-size: 2.4em;
+    font-family: 'IM Fell English SC', serif;
   }
 
   div#main-container {
@@ -43,12 +47,6 @@
     opacity: 0;
     transition: visibility 0s, opacity 2.5s ease-out;
     -webkit-transition: visibility 0s, opacity 2.5s ease-out;
-  }
-
-  div#main-container h1 {
-    color: #ff8866;
-    font-size: 4rem;
-    font-family: 'IM Fell English SC', serif;
   }
 
   div#main-container .row .text-container {
@@ -167,10 +165,6 @@
 
   $(window).on('load', function () {
     context = new (window.AudioContext || window.webkitAudioContext)({sampleRate: 44100});
-
-    const image = new Image();
-    image.onload = imageLoad;
-    image.src = "order.jpg";
   });
   </script>
 </head>

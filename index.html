@@ -149,6 +149,7 @@
   };
 
   const imageLoaded = function () {
+    context.resume();
     audio.load();
     const container = document.getElementById("main-container");
     container.style.opacity = 1;

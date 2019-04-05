@@ -107,17 +107,18 @@
   let audio, context, source, analyser, bufferLength, dataArray;
   let canvas, canvasContext, canvasContainer;
 
-  const average = arr => arr.reduce((p, c) => p + c, 0) / arr.length;
+  const average = arr => arr.reduce((p, c) => p + c, 0.0) / arr.length;
 
-  const colorValue = function (dataArray, i, calculatedValues) {
-    const f = dataArray[i];
-    const r =  ((f % 16) * 16), g = ((f % 32) * 8), b = ((f % 64) * 4);
+  const colorValue = function (calculatedValues, i) {
+    const f = calculatedValues.nonZeroRange[i];
+    const intensityMultiplier = Math.pow(calculatedValues.frequencyCover, 1/5);
+    const r = Math.floor((f % 16) * 16), g = Math.floor((f % 32) * 8), b = Math.floor((f % 64) * 4);
     const colorIntensity = average([r, g, b]) / 256.0;
 
     const maxOpacity = 0.9;
-    const opacity = colorIntensity * calculatedValues.amplitudeCoefficient * maxOpacity;
+    const opacity = colorIntensity * Math.pow(calculatedValues.amplitudeAverage, 1.4) * maxOpacity;
 
-    return "rgba(" + r + "," + g + "," + b + "," + opacity + ")";
+    return "rgba(" + (r * intensityMultiplier) + "," + (g * intensityMultiplier) + "," + (b * intensityMultiplier) + "," + opacity + ")";
   }
 
   const canvasLoop = function () {
@@ -126,21 +127,24 @@
 
     // dataArray = Array.from({ length: 256 }, () => Math.floor(Math.random() * 256));
     analyser.getByteFrequencyData(dataArray);
+    let lastNonZeroIndex = dataArray.length;
+    while( dataArray[--lastNonZeroIndex] === 0 );
+
     const calculatedValues = {};
+    calculatedValues.nonZeroRange = dataArray.slice(0, lastNonZeroIndex);
+    calculatedValues.nonZeroAmount = lastNonZeroIndex + 1;
+    calculatedValues.frequencyCover = calculatedValues.nonZeroAmount / bufferLength.toFixed();
+    calculatedValues.amplitudeAverage = average(calculatedValues.nonZeroRange) / 256.0;
 
-    calculatedValues.amplitudeAverage = average(dataArray) / 256.0;
-    calculatedValues.amplitudeCoefficient = Math.pow(calculatedValues.amplitudeAverage, 1.2);
-
-    for (let i = bufferLength - 1; i >= 0; i--)
+    for (let i = lastNonZeroIndex; i >= 0; i--)
     {
-      const f = dataArray[i];
-      const sizeMultiplier = i / bufferLength.toFixed();
-      const ratio = f / 256.0;
+      const f = calculatedValues.nonZeroRange[i];
+      const sizeMultiplier = i / calculatedValues.nonZeroAmount.toFixed();
   
       const w = canvas.width * sizeMultiplier, h = canvas.height * sizeMultiplier;
       const x = (canvas.width - w) / 2, y = (canvas.height - h) / 2;
       
-      canvasContext.fillStyle = colorValue(dataArray, i, calculatedValues);
+      canvasContext.fillStyle = colorValue(calculatedValues, i);
       canvasContext.fillRect(x, y, w, h);
     }
   }

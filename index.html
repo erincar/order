@@ -107,18 +107,21 @@
   let audio, context, source, analyser, bufferLength, dataArray;
   let canvas, canvasContext, canvasContainer;
 
+  const maxJitterMultiplier = 0.3;
+  const maxOpacity = 0.7;
+
   const average = arr => arr.reduce((p, c) => p + c, 0.0) / arr.length;
+  const locationJitter = (percentage, maxJitter) => Math.floor((Math.random() - 0.5) * percentage * maxJitter);
+  const opacityMultiplier = (percentage, base) => percentage + (1 - percentage) * (Math.pow(base, 70) * maxOpacity);
+  const intensityMultiplier = (percentage, base) => percentage + (1 - percentage) * Math.pow(base, 1.8);
 
   const colorValue = function (calculatedValues, i) {
     const f = calculatedValues.nonZeroRange[i];
-    const intensityMultiplier = Math.pow(calculatedValues.frequencyCover, 1/5);
-    const r = Math.floor((f % 16) * 16), g = Math.floor((f % 32) * 8), b = Math.floor((f % 64) * 4);
-    const colorIntensity = average([r, g, b]) / 256.0;
+    const intensity = intensityMultiplier(calculatedValues.durationPercentage, calculatedValues.frequencyCover);
+    const r = (f % 16) * 16, g = (f % 32) * 8, b = (f % 64) * 4;
+    const opacity = opacityMultiplier(calculatedValues.durationPercentage, calculatedValues.amplitudeAverage);
 
-    const maxOpacity = 0.9;
-    const opacity = colorIntensity * Math.pow(calculatedValues.amplitudeAverage, 1.4) * maxOpacity;
-
-    return "rgba(" + (r * intensityMultiplier) + "," + (g * intensityMultiplier) + "," + (b * intensityMultiplier) + "," + opacity + ")";
+    return "rgba(" + (r * intensity) + "," + (g * intensity) + "," + (b * intensity) + "," + opacity + ")";
   }
 
   const canvasLoop = function () {
@@ -131,6 +134,7 @@
     while( dataArray[--lastNonZeroIndex] === 0 );
 
     const calculatedValues = {};
+    calculatedValues.durationPercentage = (audio.currentTime / audio.duration);
     calculatedValues.nonZeroRange = dataArray.slice(0, lastNonZeroIndex);
     calculatedValues.nonZeroAmount = lastNonZeroIndex + 1;
     calculatedValues.frequencyCover = calculatedValues.nonZeroAmount / bufferLength.toFixed();
@@ -145,7 +149,9 @@
       const x = (canvas.width - w) / 2, y = (canvas.height - h) / 2;
       
       canvasContext.fillStyle = colorValue(calculatedValues, i);
-      canvasContext.fillRect(x, y, w, h);
+      canvasContext.fillRect(x + locationJitter(calculatedValues.durationPercentage, w * maxJitterMultiplier),
+                            y + locationJitter(calculatedValues.durationPercentage, h * maxJitterMultiplier),
+                            w, h);
     }
   }
 
@@ -159,7 +165,7 @@
     bufferLength = analyser.frequencyBinCount;
     dataArray = new Uint8Array(bufferLength);
 
-    audio.volume = 0.1;
+    audio.volume = 0.14;
     audio.play();
     canvasLoop();
   }
